@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Sandbox City — 3D Online</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="hud">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">S</span><span>SANDBOX <b>CITY</b></span></div>
+      <div class="status"><span class="dot"></span><span id="online-status">Modo local</span></div>
+      <button id="room-btn" class="ui-btn">Sala online</button>
+    </header>
+
+    <section class="wanted">
+      <div class="wanted-label">PROCURADO</div>
+      <div id="wanted-stars" class="stars">☆☆☆☆☆</div>
+    </section>
+
+    <section class="weapon-panel">
+      <div class="weapon-icon">⌁</div>
+      <div><small>FERRAMENTA / ARMA</small><strong id="weapon-name">Physics Gun</strong></div>
+      <div class="weapon-key">1</div>
+    </section>
+
+    <section class="help-panel">
+      <b>CONTROLES</b>
+      <span>WASD mover · Mouse olhar · Espaço pular</span>
+      <span>F Physics Gun · E Tool Gun · Clique interagir</span>
+      <span>Enter chat · 1–3 trocar ferramenta</span>
+    </section>
+
+    <section class="ai-panel">
+      <div class="panel-heading"><span>✦ CONSOLE DE IA</span><button id="ai-toggle" aria-label="Minimizar">−</button></div>
+      <p>Descreva algo para criar no mundo.</p>
+      <form id="ai-form"><input id="ai-input" maxlength="140" placeholder="Ex.: crie 3 robôs hostis perto de mim"><button>GERAR</button></form>
+      <div id="ai-log" aria-live="polite">Sistema pronto. Experimente “crie um carro vermelho”.</div>
+    </section>
+
+    <section class="chat-panel">
+      <div id="chat-log"><span class="system-msg">Bem-vindo à Sandbox City.</span></div>
+      <form id="chat-form"><input id="chat-input" maxlength="120" placeholder="Mensagem..."><button>ENVIAR</button></form>
+    </section>
+
+    <div id="crosshair">+</div>
+    <div id="toast"></div>
+    <div id="mobile-controls">
+      <div id="move-stick" class="stick"><div class="stick-knob"></div><label>MOVER</label></div>
+      <div id="look-stick" class="stick"><div class="stick-knob"></div><label>OLHAR</label></div>
+      <button id="jump-btn">PULAR</button>
+      <button id="fire-btn">USAR</button>
+    </div>
+  </div>
+
+  <div id="room-modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" id="room-close">×</button>
+      <h2>Sala online</h2>
+      <p>Crie uma sala e compartilhe o código, ou entre em uma sala existente.</p>
+      <div class="room-actions"><button id="host-btn">CRIAR SALA</button><button id="join-btn">ENTRAR</button></div>
+      <label for="room-code">Código da sala</label>
+      <input id="room-code" placeholder="Ex.: cidade-123">
+      <div id="room-feedback">Peer-to-peer via PeerJS. Ambos os jogadores precisam abrir este projeto.</div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
